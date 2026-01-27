@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de Otilia & Sergio</title>
+    <meta name="description" content="Invitación a la boda de Otilia y Sergio - 10 de Abril, 2026">
+    
+    <!-- Tailwind CSS (CDN para que funcione sin instalación) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Fuentes Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Configuración de Colores Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold-wedding': '#C5A059',
+                        'sage-green': '#8FA895',
+                        'soft-cream': '#F9F7F2',
+                        'dark-text': '#2C2C2C',
+                    },
+                    fontFamily: {
+                        'script': ['"Great Vibes"', 'cursive'],
+                        'serif': ['"Cinzel"', 'serif'],
+                        'body': ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ESTILOS PERSONALIZADOS */
+
+        /* Efecto Parallax: Fondo fijo que se mueve más lento al hacer scroll */
+        .parallax {
+            /* Foto de Portada */
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.imgur.com/vsWY9Ci.jpeg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* En móvil usamos 'scroll' para evitar saltos, en PC 'fixed' */
+            background-attachment: scroll; 
+        }
+        
+        .parallax-secondary {
+            /* Foto Separadora */
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://i.imgur.com/GDgN86a.jpeg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: scroll;
+        }
+
+        /* Media Query para activar Parallax real solo en pantallas grandes */
+        @media (min-width: 768px) {
+            .parallax, .parallax-secondary {
+                background-attachment: fixed;
+            }
+        }
+
+        /* Animación de entrada suave */
+        .fade-in-up {
+            animation: fadeInUp 1.5s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Efecto Zoom suave en galería */
+        .gallery-img {
+            transition: transform 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-soft-cream text-dark-text font-body antialiased">
+
+    <!-- SECCIÓN 1: PORTADA (HERO) -->
+    <header class="parallax h-screen flex flex-col justify-center items-center text-center text-white relative px-4">
+        
+        <div class="z-10 fade-in-up w-full max-w-md mx-auto">
+            <p class="text-lg md:text-2xl tracking-widest uppercase mb-2 font-serif text-shadow">¡Nos Casamos!</p>
+            <h1 class="font-script text-6xl md:text-8xl mb-4 text-gold-wedding drop-shadow-lg leading-tight">Otilia <br class="md:hidden"> & Sergio</h1>
+            <div class="w-20 h-1 bg-gold-wedding mx-auto mb-4 shadow-lg"></div>
+            <p class="text-xl md:text-3xl font-serif tracking-wider text-shadow font-bold">VIERNES 10 ABRIL 2026</p>
+            <p class="mt-2 text-base md:text-lg italic text-shadow">Morelia, Michoacán</p>
+        </div>
+
+        <!-- Flecha animada abajo -->
+        <div class="absolute bottom-6 z-10 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl text-gold-wedding"></i>
+        </div>
+    </header>
+
+    <!-- SECCIÓN 2: FRASE BÍBLICA -->
+    <section class="py-12 px-6 text-center max-w-4xl mx-auto">
+        <i class="fas fa-heart text-gold-wedding text-2xl mb-4"></i>
+        <p class="text-lg md:text-2xl text-gray-600 font-light leading-relaxed italic">
+            "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor."
+        </p>
+        <p class="mt-4 font-serif text-gold-wedding text-sm">- 1 Corintios 13:4-5</p>
+    </section>
+
+    <!-- SECCIÓN 3: PADRES Y PADRINOS -->
+    <section class="pb-12 px-4">
+        <div class="max-w-5xl mx-auto bg-white p-6 md:p-12 rounded-lg shadow-sm border border-gray-100">
+            <div class="text-center mb-8">
+                <h2 class="font-serif text-xl md:text-3xl text-gold-wedding mb-2">Con la bendición de sus padres</h2>
+                <div class="w-12 h-0.5 bg-gray-200 mx-auto mt-2"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 text-center mb-10">
+                <!-- Padres de Ella -->
+                <div>
+                    <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-2">De la Novia</h3>
+                    <p class="text-lg text-gray-700 font-light leading-snug">Alejandrino Terán Mojica</p>
+                    <p class="text-lg text-gray-700 font-light leading-snug">&</p>
+                    <p class="text-lg text-gray-700 font-light leading-snug">Míguela Vargas Martínez</p>
+                </div>
+                <!-- Padres de Él -->
+                <div>
+                    <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-2 mt-4 md:mt-0">Del Novio</h3>
+                    <p class="text-lg text-gray-700 font-light leading-snug">Rosalino Bahena Terán</p>
+                    <p class="text-lg text-gray-700 font-light leading-snug">&</p>
+                    <p class="text-lg text-gray-700 font-light leading-snug">Leonila Estrada Castillo</p>
+                </div>
+            </div>
+
+            <!-- Padrinos -->
+            <div class="text-center border-t border-gray-100 pt-8">
+                <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-3">Padrinos de Honor</h3>
+                <p class="font-script text-2xl md:text-3xl text-gold-wedding">Antonio Brito & Sofía Sánchez</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: CUENTA REGRESIVA -->
+    <section class="bg-white py-10 shadow-inner">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center font-serif text-2xl text-gray-800 mb-8">Faltan</h2>
+            <div id="countdown" class="flex flex-wrap justify-center gap-4 md:gap-12 text-center text-gold-wedding font-serif">
+                <div class="flex flex-col bg-soft-cream p-3 rounded w-20 md:w-auto"><span class="text-3xl md:text-6xl font-bold" id="days">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Días</span></div>
+                <div class="flex flex-col bg-soft-cream p-3 rounded w-20 md:w-auto"><span class="text-3xl md:text-6xl font-bold" id="hours">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Hrs</span></div>
+                <div class="flex flex-col bg-soft-cream p-3 rounded w-20 md:w-auto"><span class="text-3xl md:text-6xl font-bold" id="minutes">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Min</span></div>
+                <div class="flex flex-col bg-soft-cream p-3 rounded w-20 md:w-auto"><span class="text-3xl md:text-6xl font-bold" id="seconds">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Seg</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: GALERÍA DE FOTOS (Vertical Friendly) -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-2">
+            <h2 class="text-center font-serif text-2xl text-gray-800 mb-8">Nuestra Historia</h2>
+            
+            <!-- Grid optimizado: 2 columnas en móvil, 3 en desktop -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 auto-rows-fr">
+                <!-- Foto 1 -->
+                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img">
+                    <img src="https://i.imgur.com/2DAKVVb.jpeg" alt="Otilia y Sergio" class="w-full h-full object-cover">
+                </div>
+                <!-- Foto 2 -->
+                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img">
+                    <img src="https://i.imgur.com/0sLQ8ea.jpeg" alt="Otilia y Sergio" class="w-full h-full object-cover">
+                </div>
+                <!-- Foto 3 -->
+                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img">
+                    <img src="https://i.imgur.com/TLqvgL7.jpeg" alt="Otilia y Sergio" class="w-full h-full object-cover">
+                </div>
+                <!-- Foto 4 -->
+                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img">
+                    <img src="https://i.imgur.com/pZkCnwg.jpeg" alt="Otilia y Sergio" class="w-full h-full object-cover">
+                </div>
+                <!-- Foto 5 -->
+                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img">
+                    <img src="https://i.imgur.com/F30kDra.jpeg" alt="Otilia y Sergio" class="w-full h-full object-cover">
+                </div>
+                <!-- Foto 6 (Placeholder Texto) -->
+                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img bg-gray-100 flex items-center justify-center">
+                    <div class="text-center p-2">
+                        <i class="fas fa-camera text-gold-wedding text-2xl mb-1"></i>
+                        <p class="font-script text-lg text-gray-600">Juntos por siempre</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6: SEPARADOR VISUAL -->
+    <div class="parallax-secondary h-48 md:h-96 w-full flex items-center justify-center">
+        <div class="bg-white/80 p-6 md:p-12 text-center rounded-sm">
+             <h2 class="font-script text-3xl md:text-6xl text-gold-wedding">¡Te esperamos!</h2>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 7: ITINERARIO / UBICACIONES -->
+    <section class="py-12 container mx-auto px-4 bg-soft-cream">
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            
+            <!-- Ceremonia -->
+            <div class="bg-white p-6 md:p-12 rounded-lg shadow-lg text-center border-t-4 border-gold-wedding">
+                <div class="w-12 h-12 bg-soft-cream rounded-full flex items-center justify-center mx-auto mb-4 text-gold-wedding text-xl">
+                    <i class="fas fa-church"></i>
+                </div>
+                <h3 class="font-serif text-xl mb-1 text-gray-800">Ceremonia Religiosa</h3>
+                <p class="text-gold-wedding font-bold mb-4 text-base">Catedral de Morelia</p>
+                
+                <div class="space-y-1 text-gray-600 mb-6">
+                    <p class="text-lg font-bold"><i class="far fa-clock mr-2"></i>12:00 HRS</p>
+                    <p class="text-sm px-2 leading-tight">Av Francisco I. Madero Pte S/N, Centro Histórico</p>
+                </div>
+
+                <a href="https://maps.app.goo.gl/6WTGzU47pjVQDfj47" target="_blank" class="inline-block bg-dark-text text-white px-6 py-2 rounded-full hover:bg-gold-wedding transition duration-300 text-xs tracking-wider uppercase w-full md:w-auto">
+                    <i class="fas fa-map-marker-alt mr-2"></i>Ver Ubicación
+                </a>
+            </div>
+
+            <!-- Recepción -->
+            <div class="bg-white p-6 md:p-12 rounded-lg shadow-lg text-center border-t-4 border-sage-green">
+                <div class="w-12 h-12 bg-soft-cream rounded-full flex items-center justify-center mx-auto mb-4 text-sage-green text-xl">
+                    <i class="fas fa-glass-cheers"></i>
+                </div>
+                <h3 class="font-serif text-xl mb-1 text-gray-800">Recepción</h3>
+                <p class="text-sage-green font-bold mb-4 text-base">Jardín de Eventos Santa Sofía</p>
+                
+                <div class="space-y-1 text-gray-600 mb-6">
+                    <p class="text-lg font-bold"><i class="far fa-clock mr-2"></i>16:00 HRS</p>
+                    <p class="text-sm px-2 leading-tight">Camino a la Arboleda, 58341 Morelia, Mich.</p>
+                </div>
+
+                <a href="https://maps.app.goo.gl/K7Lg4hmEF5h3aAjb9" target="_blank" class="inline-block bg-dark-text text-white px-6 py-2 rounded-full hover:bg-sage-green transition duration-300 text-xs tracking-wider uppercase w-full md:w-auto">
+                    <i class="fas fa-map-marker-alt mr-2"></i>Ver Ubicación
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 8: CÓDIGO DE VESTIMENTA Y REGALOS -->
+    <section class="bg-white py-12">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Dress Code -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <i class="fas fa-user-tie text-3xl text-gray-400 mb-3"></i>
+                    <h3 class="font-serif text-lg mb-2">Código de Vestimenta</h3>
+                    <p class="text-gray-800 font-bold">Formal / Etiqueta</p>
+                    <p class="text-xs text-gray-500 mt-2">Rogamos etiqueta rigurosa.</p>
+                </div>
+
+                <!-- Regalos -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <i class="fas fa-gift text-3xl text-gray-400 mb-3"></i>
+                    <h3 class="font-serif text-lg mb-2">Mesa de Regalos</h3>
+                    <p class="text-gray-600 text-sm">Su presencia es nuestro mejor regalo.</p>
+                    <p class="text-xs text-gray-500 mt-2">Dispondremos de buzón de sobres.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER: CONFIRMACIÓN WHATSAPP -->
+    <footer class="bg-dark-text text-white py-16 text-center px-4">
+        <h2 class="font-serif text-2xl mb-6">Confirmación de Asistencia</h2>
+        <p class="mb-8 text-gray-300 text-sm max-w-xs mx-auto">Por favor confirmar antes del 1 de Marzo.</p>
+        
+        <!-- Botón de WhatsApp -->
+        <a href="https://wa.me/524435296595?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Otilia%20y%20Sergio.%20Seremos%20[NÚMERO]%20personas." target="_blank" class="inline-flex items-center bg-green-500 text-white px-6 py-3 rounded-full font-bold hover:bg-green-600 transition duration-300 shadow-lg text-base w-full max-w-xs justify-center">
+            <i class="fab fa-whatsapp text-2xl mr-3"></i> Confirmar
+        </a>
+
+        <div class="mt-16 border-t border-gray-700 pt-8">
+            <p class="font-script text-2xl text-gold-wedding">Otilia & Sergio</p>
+            <p class="text-[10px] text-gray-500 mt-2 tracking-widest uppercase">10.04.2026</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT: Lógica de la Cuenta Regresiva -->
+    <script>
+        // Fecha objetivo: 10 de Abril, 2026 a las 12:00:00
+        const weddingDate = new Date("April 10, 2026 12:00:00").getTime();
+
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            // Cálculos de tiempo
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Insertar en el HTML
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            // Si la cuenta llega a cero
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "<div class='text-4xl w-full'>¡Es hoy!</div>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
