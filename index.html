@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda de Otilia & Sergio</title>
-    <meta name="description" content="Invitación a la boda de Otilia y Sergio - 10 de Abril, 2026">
+    <title>Boda de Sergio & Otilia</title>
+    <meta name="description" content="Invitación a la boda de Sergio y Otilia - 10 de Abril, 2026">
     
-    <!-- Tailwind CSS (CDN para que funcione sin instalación) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Iconos FontAwesome -->
@@ -23,10 +23,10 @@
             theme: {
                 extend: {
                     colors: {
-                        'gold-wedding': '#C5A059',
-                        'sage-green': '#8FA895',
-                        'soft-cream': '#F9F7F2',
-                        'dark-text': '#2C2C2C',
+                        'gold-wedding': '#D4AF37',
+                        'royal-blue': '#1B3F8B',
+                        'soft-blue': '#F0F4F8',
+                        'dark-text': '#1A202C',
                     },
                     fontFamily: {
                         'script': ['"Great Vibes"', 'cursive'],
@@ -40,289 +40,351 @@
 
     <style>
         /* ESTILOS PERSONALIZADOS */
-
-        /* Efecto Parallax: Fondo fijo que se mueve más lento al hacer scroll */
         .parallax {
-            /* Foto de Portada */
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.imgur.com/vsWY9Ci.jpeg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            /* En móvil usamos 'scroll' para evitar saltos, en PC 'fixed' */
             background-attachment: scroll; 
         }
-        
-        .parallax-secondary {
-            /* Foto Separadora */
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://i.imgur.com/GDgN86a.jpeg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: scroll;
+
+        .photo-divider {
+            height: 300px;
+            width: 100%;
         }
 
-        /* Media Query para activar Parallax real solo en pantallas grandes */
         @media (min-width: 768px) {
-            .parallax, .parallax-secondary {
-                background-attachment: fixed;
-            }
+            .parallax { background-attachment: fixed; }
+            .photo-divider { height: 400px; }
         }
 
-        /* Animación de entrada suave */
-        .fade-in-up {
-            animation: fadeInUp 1.5s ease-out;
-        }
+        .fade-in-up { animation: fadeInUp 1.5s ease-out; }
         
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
-        /* Efecto Zoom suave en galería */
-        .gallery-img {
-            transition: transform 0.3s ease;
+
+        /* NUEVO ARREGLO FLORAL OSTENTOSO Y SIMÉTRICO 
+           Estilo Victoriano / Barroco en Azul Real
+        */
+        .floral-divider {
+            background-image: url("data:image/svg+xml,%3Csvg width='1000' height='200' viewBox='0 0 1000 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%231B3F8B' d='M500 40c-15 0-30 5-40 15-10 10-15 25-15 40s5 30 15 40c10 10 25 15 40 15s30-5 40-15c10-10 15-25 15-40s-5-30-15-40c-10-10-25-15-40-15zm0 15c10 0 15 10 15 25s-5 25-15 25-15-10-15-25 5-25 15-25z'/%3E%3Cpath fill='%231B3F8B' d='M450 90c-20 0-35-10-45-20-10-10-15-25-20-40-5-10-10-15-20-15-15 0-25 15-25 30 0 10 5 20 10 25 5 10 15 15 10 25-5 5-10 5-15 0-10-10-15-25-15-40 0-25 20-45 45-45 15 0 30 10 35 25 5 15 10 30 25 35 10 5 15 15 15 20zM550 90c20 0 35-10 45-20 10-10 15-25 20-40 5-10 10-15 20-15 15 0 25 15 25 30 0 10-5 20-10 25-5 10-15 15-10 25 5 5 10 5 15 0 10-10 15-25 15-40 0-25-20-45-45-45-15 0-30 10-35 25-5 15-10 30-25 35-10 5-15 15-15 20z'/%3E%3Cpath fill='%231B3F8B' d='M350 120c-15 0-30-5-40-15-10-10-15-25-10-40 5-15 15-25 30-30 15-5 30 0 40 10 10 10 10 25 0 35-5 5-10 5-15 5-5 0-10-5-10-10 0-5 5-10 10-10 5 0 5-5 0-10-5-5-10-5-15 0-10 5-15 15-10 25 5 10 15 15 20 15zM650 120c15 0 30-5 40-15 10-10 15-25 10-40-5-15-15-25-30-30-15-5-30 0-40 10-10 10-10 25 0 35 5 5 10 5 15 5 5 0 10-5 10-10 0-5-5-10-10-10-5 0-5-5 0-10 5-5 10-5 15 0 10 5 15 15 10 25-5 10-15 15-20 15z'/%3E%3Cpath fill='%231B3F8B' d='M250 100c-30 0-50-20-60-40-5-15-5-30 0-45 5-10 15-15 25-15s20 5 25 15c5 10 5 25-5 35-10 10-25 10-35 0-5-5-5-10 0-15 5-5 10-5 15 0 5 5 10 5 15 0 10-5 10-15 5-25-5-5-10-10-20-10s-15 5-20 15c-5 10-5 25 5 35 10 20 25 35 50 35s40-15 50-35c10-20 10-35 5-45-5-10-15-15-25-15s-20 5-25 15c-5 10-5 25 5 35 10 10 25 10 35 0 5-5 5-10 0-15-5-5-10-5-15 0-5 5-10 5-15 0-10-5-10-15-5-25 5-5 10-10 20-10s15 5 20 15c5 10 5 25-5 35-10 20-30 40-60 40zM750 100c30 0 50-20 60-40 5-15 5-30 0-45-5-10-15-15-25-15s-20 5-25 15c-5 10-5 25 5 35 10 10 25 10 35 0 5-5 5-10 0-15-5-5-10-5-15 0-5 5-10 5-15 0-10-5-10-15-5-25 5-5 10-10 20-10s15 5 20 15c5 10 5 25-5 35-10 20-25 35-50 35s-40-15-50-35c-10-20-10-35-5-45 5-10 15-15 25-15s20 5 25 15c5 10 5 25-5 35-10 10-25 10-35 0-5-5-5-10 0-15 5-5 10-5 15 0 5 5 10 5 15 0 10-5 10-15 5-25-5-5-10-10-20-10s-15 5-20 15c-5 10-5 25 5 35 10 20 30 40 60 40z'/%3E%3Cpath fill='%231B3F8B' d='M100 110c-20 0-35-10-45-20-10-15-10-30 0-45 5-10 15-15 25-15 15 0 25 10 30 20 5 15 0 30-10 40-10 10-20 20-35 20zm0-5c10 0 15-5 20-10 10-10 10-25 0-35-5-5-10-10-20-10-10 0-15 5-20 15-5 10-5 20 0 30 5 5 10 10 20 10zM900 110c20 0 35-10 45-20 10-15 10-30 0-45-5-10-15-15-25-15-15 0-25 10-30 20-5 15 0 30 10 40 10 10 20 20 35 20zm0-5c-10 0-15-5-20-10-10-10-10-25 0-35 5-5 10-10 20-10 10 0 15 5 20 15 5 10 5 20 0 30-5 5-10 10-20 10z'/%3E%3C/svg%3E");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 120px; /* Mucho más grande */
+            width: 100%;
+            margin: 10px 0;
+            opacity: 0.9;
+            /* Filtro de sombra suave para darle volumen */
+            filter: drop-shadow(0px 2px 2px rgba(27, 63, 139, 0.2)); 
         }
-        .gallery-img:hover {
-            transform: scale(1.02);
+
+        /* SVG Data URI para las Esquinas Florales (Azul Real) */
+        .floral-corner {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%231B3F8B' d='M195.5 2.5c-25.6 2.2-54.2 11.3-75.6 29.3-11.4 9.6-20.9 21.4-27.8 34.6-5.9 11.3-10.3 23.6-12.8 36.1-0.4 2.2-0.8 4.4-1.1 6.6-0.9-2.3-1.8-4.6-2.8-6.8-8.2-18.7-22.5-34.1-40.4-43.6-16.1-8.6-35.4-9.9-52.4-3.7L2.5 57.9c0 2.5 11.1 8.3 24.6 12.9 18.9 6.4 38.7 6.2 57.5-0.5 11.6-4.2 21.7-11.3 29.5-20.6-10.9 14.5-25.3 26.4-41.6 34.4-16.2 8-34.4 10.9-52.1 8.4l0 0c0 2.5 10.1 9.3 22.4 15.1 17.9 8.5 38.2 9.6 57.2 3.1 9.9-3.4 18.8-9.1 25.9-16.5-0.3 2.9-0.7 5.8-1.2 8.6-3.5 20.7-11.6 40.1-23.3 57.1-11.7 16.9-26.6 30.3-43.5 39.2-11.2 5.9-23.1 9.2-35.1 9.8v2.6c16.6 0.9 33.3-2.8 48.2-10.7 22.6-12.1 41.5-31.6 53.6-55.2 8.6-16.6 13.5-34.9 14.5-53.5 0.5-9-6.7-15.7-13.4-12.1-5.4 2.9-9.7 7.8-12.2 13.4-2.5 5.6-3.1 11.8-1.8 17.6 1.3 5.8 4.6 11 10.1 13.9 4.2 2.2 9.2 1.8 13-0.9 2.9-2.1 4.7-5.5 5.1-9.2 0.4-3.7-1.1-7.2-3.9-9.8-2.8-2.6-6.6-3.4-10.2-2.2-3.6 1.2-6.3 4.5-7.1 8.2-0.8 3.7 1.3 7.4 4.9 8.7 3.6 1.3 7.6-0.6 8.9-4.2 1.3-3.6-0.6-7.6-4.2-8.9-3.6-1.3-7.6 0.6-8.9 4.2 1.6 10.1 1.2 19.7-1.3 28.8-3.6 13.4-10.5 25.6-19.6 35.4-9.1 9.8-20.3 16.9-32.5 20.5-12.2 3.6-25.1 3.9-37.4 0.9l0.9 2.5c12.4 1.1 24.9-1.7 35.7-8.1 15.3-8.9 27.5-21.7 35.2-37.2 7.7-15.5 11.1-32.5 10.1-49.6-0.2-3.6-0.7-7.2-1.5-10.7 2.4-2.2 4.7-4.4 7.1-6.5 12.6-11.3 27.2-19.7 42.9-25 15.6-5.3 31.9-7.2 48.1-5.8V2.5z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.8; /* Bien visibles */
+            pointer-events: none;
+            z-index: 10;
         }
+
+        .corner-top-left {
+            top: 0;
+            left: 0;
+            transform: rotate(0deg); /* La imagen original ya es esquina superior izquierda */
+        }
+
+        .corner-top-right {
+            top: 0;
+            right: 0;
+            transform: scaleX(-1); /* Espejo horizontal */
+        }
+
+        .corner-bottom-left {
+            bottom: 0;
+            left: 0;
+            transform: scaleY(-1); /* Espejo vertical */
+        }
+
+        .corner-bottom-right {
+            bottom: 0;
+            right: 0;
+            transform: rotate(180deg); /* Rotación completa */
+        }
+
+        /* Animación del botón de música */
+        .music-spin { animation: spin 4s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="bg-soft-cream text-dark-text font-body antialiased">
+<body class="bg-soft-blue text-dark-text font-body antialiased">
 
-    <!-- SECCIÓN 1: PORTADA (HERO) -->
-    <header class="parallax h-screen flex flex-col justify-center items-center text-center text-white relative px-4">
+    <!-- REPRODUCTOR DE MÚSICA (OCULTO) -->
+    <audio id="bg-music" loop>
+        <source src="https://files.catbox.moe/nlgh2c.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- BOTÓN FLOTANTE DE MÚSICA -->
+    <button id="music-btn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-50 bg-white/90 text-royal-blue p-4 rounded-full shadow-2xl border-2 border-royal-blue hover:scale-110 transition-transform duration-300 group">
+        <div class="relative">
+            <i id="music-icon" class="fas fa-play text-xl"></i>
+            <span class="absolute -top-1 -right-1 flex h-3 w-3">
+              <span id="music-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-royal-blue opacity-75 hidden"></span>
+            </span>
+        </div>
+    </button>
+
+    <!-- FOTO 1: PORTADA (HERO) -->
+    <header class="parallax h-screen flex flex-col justify-center items-center text-center text-white relative px-4 border-b-8 border-royal-blue" style="background-image: linear-gradient(rgba(27, 63, 139, 0.3), rgba(27, 63, 139, 0.3)), url('https://i.imgur.com/55vIAzI.jpeg');">
         
         <div class="z-10 fade-in-up w-full max-w-md mx-auto">
+            <div class="mb-4 text-4xl text-white/80"><i class="fas fa-spa"></i></div>
             <p class="text-lg md:text-2xl tracking-widest uppercase mb-2 font-serif text-shadow">¡Nos Casamos!</p>
-            <h1 class="font-script text-6xl md:text-8xl mb-4 text-gold-wedding drop-shadow-lg leading-tight">Otilia <br class="md:hidden"> & Sergio</h1>
-            <div class="w-20 h-1 bg-gold-wedding mx-auto mb-4 shadow-lg"></div>
-            <p class="text-xl md:text-3xl font-serif tracking-wider text-shadow font-bold">VIERNES 10 ABRIL 2026</p>
+            <h1 class="font-script text-6xl md:text-8xl mb-4 text-white drop-shadow-lg leading-tight">Sergio <br class="md:hidden"> & Otilia</h1>
+            <div class="w-20 h-1 bg-white mx-auto mb-4 shadow-lg"></div>
+            <p class="text-xl md:text-3xl font-serif tracking-wider text-shadow font-bold text-gold-wedding">VIERNES 10 ABRIL 2026</p>
             <p class="mt-2 text-base md:text-lg italic text-shadow">Morelia, Michoacán</p>
         </div>
 
-        <!-- Flecha animada abajo -->
         <div class="absolute bottom-6 z-10 animate-bounce">
-            <i class="fas fa-chevron-down text-2xl text-gold-wedding"></i>
+            <i class="fas fa-chevron-down text-2xl text-white"></i>
         </div>
     </header>
 
-    <!-- SECCIÓN 2: FRASE BÍBLICA -->
-    <section class="py-12 px-6 text-center max-w-4xl mx-auto">
-        <i class="fas fa-heart text-gold-wedding text-2xl mb-4"></i>
-        <p class="text-lg md:text-2xl text-gray-600 font-light leading-relaxed italic">
-            "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor."
-        </p>
-        <p class="mt-4 font-serif text-gold-wedding text-sm">- 1 Corintios 13:4-5</p>
-    </section>
+    <!-- SECCIÓN TEXTO: FRASE BÍBLICA -->
+    <section class="py-24 px-6 text-center max-w-4xl mx-auto relative bg-white overflow-hidden shadow-lg my-8 rounded-lg">
+        <!-- Esquinas Florales -->
+        <div class="floral-corner corner-top-left"></div>
+        <div class="floral-corner corner-top-right"></div>
+        <div class="floral-corner corner-bottom-left"></div>
+        <div class="floral-corner corner-bottom-right"></div>
 
-    <!-- SECCIÓN 3: PADRES Y PADRINOS -->
-    <section class="pb-12 px-4">
-        <div class="max-w-5xl mx-auto bg-white p-6 md:p-12 rounded-lg shadow-sm border border-gray-100">
-            <div class="text-center mb-8">
-                <h2 class="font-serif text-xl md:text-3xl text-gold-wedding mb-2">Con la bendición de sus padres</h2>
-                <div class="w-12 h-0.5 bg-gray-200 mx-auto mt-2"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 text-center mb-10">
-                <!-- Padres de Ella -->
-                <div>
-                    <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-2">De la Novia</h3>
-                    <p class="text-lg text-gray-700 font-light leading-snug">Alejandrino Terán Mojica</p>
-                    <p class="text-lg text-gray-700 font-light leading-snug">&</p>
-                    <p class="text-lg text-gray-700 font-light leading-snug">Míguela Vargas Martínez</p>
-                </div>
-                <!-- Padres de Él -->
-                <div>
-                    <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-2 mt-4 md:mt-0">Del Novio</h3>
-                    <p class="text-lg text-gray-700 font-light leading-snug">Rosalino Bahena Terán</p>
-                    <p class="text-lg text-gray-700 font-light leading-snug">&</p>
-                    <p class="text-lg text-gray-700 font-light leading-snug">Leonila Estrada Castillo</p>
-                </div>
-            </div>
-
-            <!-- Padrinos -->
-            <div class="text-center border-t border-gray-100 pt-8">
-                <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-3">Padrinos de Honor</h3>
-                <p class="font-script text-2xl md:text-3xl text-gold-wedding">Antonio Brito & Sofía Sánchez</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 4: CUENTA REGRESIVA -->
-    <section class="bg-white py-10 shadow-inner">
-        <div class="container mx-auto px-4">
-            <h2 class="text-center font-serif text-2xl text-gray-800 mb-8">Faltan</h2>
-            <div id="countdown" class="flex flex-wrap justify-center gap-4 md:gap-12 text-center text-gold-wedding font-serif">
-                <div class="flex flex-col bg-soft-cream p-3 rounded w-20 md:w-auto"><span class="text-3xl md:text-6xl font-bold" id="days">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Días</span></div>
-                <div class="flex flex-col bg-soft-cream p-3 rounded w-20 md:w-auto"><span class="text-3xl md:text-6xl font-bold" id="hours">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Hrs</span></div>
-                <div class="flex flex-col bg-soft-cream p-3 rounded w-20 md:w-auto"><span class="text-3xl md:text-6xl font-bold" id="minutes">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Min</span></div>
-                <div class="flex flex-col bg-soft-cream p-3 rounded w-20 md:w-auto"><span class="text-3xl md:text-6xl font-bold" id="seconds">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Seg</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 5: GALERÍA DE FOTOS (Vertical Friendly) -->
-    <section class="py-12 bg-white">
-        <div class="container mx-auto px-2">
-            <h2 class="text-center font-serif text-2xl text-gray-800 mb-8">Nuestra Historia</h2>
+        <div class="relative z-20">
+            <!-- Nuevo Divisor Arriba -->
+            <div class="floral-divider mb-6"></div>
             
-            <!-- Grid optimizado: 2 columnas en móvil, 3 en desktop -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 auto-rows-fr">
-                <!-- Foto 1 -->
-                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img">
-                    <img src="https://i.imgur.com/2DAKVVb.jpeg" alt="Otilia y Sergio" class="w-full h-full object-cover">
+            <i class="fas fa-dove text-royal-blue text-3xl mb-4"></i>
+            <p class="text-lg md:text-2xl text-gray-600 font-light leading-relaxed italic px-8">
+                "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor."
+            </p>
+            <p class="mt-4 font-serif text-royal-blue text-sm">- 1 Corintios 13:4-5</p>
+            
+            <!-- Nuevo Divisor Abajo -->
+            <div class="floral-divider mt-6 transform rotate-180"></div>
+        </div>
+    </section>
+
+    <!-- FOTO 2: SEPARADOR -->
+    <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/vCtCdDT.jpeg');"></div>
+
+    <!-- SECCIÓN TEXTO: PADRES Y PADRINOS -->
+    <section class="py-16 px-4 bg-soft-blue">
+        <div class="max-w-5xl mx-auto bg-white p-10 md:p-16 rounded-lg shadow-lg border-t-4 border-royal-blue relative overflow-hidden">
+            <!-- Esquinas Florales -->
+            <div class="floral-corner corner-top-left"></div>
+            <div class="floral-corner corner-top-right"></div>
+            
+            <div class="relative z-20">
+                <div class="text-center mb-8">
+                    <h2 class="font-serif text-xl md:text-3xl text-royal-blue mb-2">Con la bendición de sus padres</h2>
+                    <div class="w-12 h-0.5 bg-gold-wedding mx-auto mt-2"></div>
                 </div>
-                <!-- Foto 2 -->
-                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img">
-                    <img src="https://i.imgur.com/0sLQ8ea.jpeg" alt="Otilia y Sergio" class="w-full h-full object-cover">
-                </div>
-                <!-- Foto 3 -->
-                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img">
-                    <img src="https://i.imgur.com/TLqvgL7.jpeg" alt="Otilia y Sergio" class="w-full h-full object-cover">
-                </div>
-                <!-- Foto 4 -->
-                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img">
-                    <img src="https://i.imgur.com/pZkCnwg.jpeg" alt="Otilia y Sergio" class="w-full h-full object-cover">
-                </div>
-                <!-- Foto 5 -->
-                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img">
-                    <img src="https://i.imgur.com/F30kDra.jpeg" alt="Otilia y Sergio" class="w-full h-full object-cover">
-                </div>
-                <!-- Foto 6 (Placeholder Texto) -->
-                <div class="relative overflow-hidden rounded shadow-md h-48 md:h-64 lg:h-80 gallery-img bg-gray-100 flex items-center justify-center">
-                    <div class="text-center p-2">
-                        <i class="fas fa-camera text-gold-wedding text-2xl mb-1"></i>
-                        <p class="font-script text-lg text-gray-600">Juntos por siempre</p>
+
+                <div class="grid md:grid-cols-2 gap-8 text-center mb-10">
+                    <div>
+                        <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-2">Del Novio</h3>
+                        <p class="text-lg text-gray-700 font-light leading-snug">Rosalino Bahena Terán</p>
+                        <p class="text-lg text-gray-700 font-light leading-snug">&</p>
+                        <p class="text-lg text-gray-700 font-light leading-snug">Leonila Estrada Castillo</p>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-2 mt-4 md:mt-0">De la Novia</h3>
+                        <p class="text-lg text-gray-700 font-light leading-snug">Alejandrino Terán Mojica</p>
+                        <p class="text-lg text-gray-700 font-light leading-snug">&</p>
+                        <p class="text-lg text-gray-700 font-light leading-snug">Míguela Vargas Martínez</p>
                     </div>
                 </div>
+
+                <div class="text-center border-t border-gray-100 pt-8">
+                    <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-3">Padrinos de Velación</h3>
+                    <p class="font-script text-2xl md:text-3xl text-royal-blue">Antonio Brito & Sofía Sánchez</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 6: SEPARADOR VISUAL -->
-    <div class="parallax-secondary h-48 md:h-96 w-full flex items-center justify-center">
-        <div class="bg-white/80 p-6 md:p-12 text-center rounded-sm">
-             <h2 class="font-script text-3xl md:text-6xl text-gold-wedding">¡Te esperamos!</h2>
-        </div>
-    </div>
+    <!-- FOTO 3: SEPARADOR -->
+    <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/dHklgb8.jpeg');"></div>
 
-    <!-- SECCIÓN 7: ITINERARIO / UBICACIONES -->
-    <section class="py-12 container mx-auto px-4 bg-soft-cream">
+    <!-- SECCIÓN TEXTO: CUENTA REGRESIVA -->
+    <section class="bg-royal-blue py-16 shadow-inner text-white relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-20">
+            <h2 class="text-center font-serif text-2xl mb-8">Faltan</h2>
+            <div id="countdown" class="flex flex-wrap justify-center gap-4 md:gap-12 text-center text-royal-blue font-serif">
+                <div class="flex flex-col bg-white p-3 rounded w-20 md:w-auto shadow-lg"><span class="text-3xl md:text-6xl font-bold" id="days">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Días</span></div>
+                <div class="flex flex-col bg-white p-3 rounded w-20 md:w-auto shadow-lg"><span class="text-3xl md:text-6xl font-bold" id="hours">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Hrs</span></div>
+                <div class="flex flex-col bg-white p-3 rounded w-20 md:w-auto shadow-lg"><span class="text-3xl md:text-6xl font-bold" id="minutes">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Min</span></div>
+                <div class="flex flex-col bg-white p-3 rounded w-20 md:w-auto shadow-lg"><span class="text-3xl md:text-6xl font-bold" id="seconds">00</span><span class="text-xs uppercase text-gray-500 tracking-widest">Seg</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOTO 4: SEPARADOR -->
+    <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/da3VYxe.jpeg');"></div>
+
+    <!-- SECCIÓN TEXTO: ITINERARIO / UBICACIONES -->
+    <section class="py-16 container mx-auto px-4 bg-soft-blue relative">
+        <div class="text-center mb-10">
+            <h2 class="font-serif text-3xl text-royal-blue">Itinerario</h2>
+            <!-- Divisor Floral Central Ostentoso -->
+            <div class="floral-divider"></div>
+        </div>
+
         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
-            <!-- Ceremonia -->
-            <div class="bg-white p-6 md:p-12 rounded-lg shadow-lg text-center border-t-4 border-gold-wedding">
-                <div class="w-12 h-12 bg-soft-cream rounded-full flex items-center justify-center mx-auto mb-4 text-gold-wedding text-xl">
-                    <i class="fas fa-church"></i>
-                </div>
-                <h3 class="font-serif text-xl mb-1 text-gray-800">Ceremonia Religiosa</h3>
-                <p class="text-gold-wedding font-bold mb-4 text-base">Catedral de Morelia</p>
+            <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg text-center border-t-4 border-royal-blue relative overflow-hidden transform hover:-translate-y-1 transition duration-300">
+                <div class="floral-corner corner-top-left" style="width: 100px; height: 100px;"></div>
+                <div class="absolute -top-6 -left-6 text-9xl text-soft-blue opacity-30"><i class="fas fa-church"></i></div>
                 
-                <div class="space-y-1 text-gray-600 mb-6">
-                    <p class="text-lg font-bold"><i class="far fa-clock mr-2"></i>12:00 HRS</p>
-                    <p class="text-sm px-2 leading-tight">Av Francisco I. Madero Pte S/N, Centro Histórico</p>
+                <div class="relative z-20">
+                    <div class="w-12 h-12 bg-soft-blue rounded-full flex items-center justify-center mx-auto mb-4 text-royal-blue text-xl">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3 class="font-serif text-xl mb-1 text-gray-800">Ceremonia Religiosa</h3>
+                    <p class="text-royal-blue font-bold mb-4 text-base">Catedral de Morelia</p>
+                    <div class="space-y-1 text-gray-600 mb-6">
+                        <p class="text-lg font-bold"><i class="far fa-clock mr-2"></i>12:00 HRS</p>
+                        <p class="text-sm px-2 leading-tight">Av Francisco I. Madero Pte S/N, Centro Histórico</p>
+                    </div>
+                    <a href="https://maps.app.goo.gl/6WTGzU47pjVQDfj47" target="_blank" class="inline-block bg-royal-blue text-white px-6 py-2 rounded-full hover:bg-blue-800 transition duration-300 text-xs tracking-wider uppercase w-full md:w-auto">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Ver Ubicación
+                    </a>
                 </div>
-
-                <a href="https://maps.app.goo.gl/6WTGzU47pjVQDfj47" target="_blank" class="inline-block bg-dark-text text-white px-6 py-2 rounded-full hover:bg-gold-wedding transition duration-300 text-xs tracking-wider uppercase w-full md:w-auto">
-                    <i class="fas fa-map-marker-alt mr-2"></i>Ver Ubicación
-                </a>
             </div>
 
-            <!-- Recepción -->
-            <div class="bg-white p-6 md:p-12 rounded-lg shadow-lg text-center border-t-4 border-sage-green">
-                <div class="w-12 h-12 bg-soft-cream rounded-full flex items-center justify-center mx-auto mb-4 text-sage-green text-xl">
-                    <i class="fas fa-glass-cheers"></i>
-                </div>
-                <h3 class="font-serif text-xl mb-1 text-gray-800">Recepción</h3>
-                <p class="text-sage-green font-bold mb-4 text-base">Jardín de Eventos Santa Sofía</p>
+            <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg text-center border-t-4 border-royal-blue relative overflow-hidden transform hover:-translate-y-1 transition duration-300">
+                <div class="floral-corner corner-top-right" style="width: 100px; height: 100px;"></div>
+                <div class="absolute -top-6 -right-6 text-9xl text-soft-blue opacity-30"><i class="fas fa-glass-cheers"></i></div>
                 
-                <div class="space-y-1 text-gray-600 mb-6">
-                    <p class="text-lg font-bold"><i class="far fa-clock mr-2"></i>16:00 HRS</p>
-                    <p class="text-sm px-2 leading-tight">Camino a la Arboleda, 58341 Morelia, Mich.</p>
+                <div class="relative z-20">
+                    <div class="w-12 h-12 bg-soft-blue rounded-full flex items-center justify-center mx-auto mb-4 text-royal-blue text-xl">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="font-serif text-xl mb-1 text-gray-800">Recepción</h3>
+                    <p class="text-royal-blue font-bold mb-4 text-base">Jardín de Eventos Santa Sofía</p>
+                    <div class="space-y-1 text-gray-600 mb-6">
+                        <p class="text-lg font-bold"><i class="far fa-clock mr-2"></i>16:00 HRS</p>
+                        <p class="text-sm px-2 leading-tight">Camino a la Arboleda, 58341 Morelia, Mich.</p>
+                    </div>
+                    <a href="https://maps.app.goo.gl/K7Lg4hmEF5h3aAjb9" target="_blank" class="inline-block bg-royal-blue text-white px-6 py-2 rounded-full hover:bg-blue-800 transition duration-300 text-xs tracking-wider uppercase w-full md:w-auto">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Ver Ubicación
+                    </a>
                 </div>
-
-                <a href="https://maps.app.goo.gl/K7Lg4hmEF5h3aAjb9" target="_blank" class="inline-block bg-dark-text text-white px-6 py-2 rounded-full hover:bg-sage-green transition duration-300 text-xs tracking-wider uppercase w-full md:w-auto">
-                    <i class="fas fa-map-marker-alt mr-2"></i>Ver Ubicación
-                </a>
             </div>
-
         </div>
     </section>
 
-    <!-- SECCIÓN 8: CÓDIGO DE VESTIMENTA Y REGALOS -->
-    <section class="bg-white py-12">
+    <!-- FOTO 5: SEPARADOR -->
+    <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/ou6xaYU.jpeg');"></div>
+
+    <!-- SECCIÓN TEXTO: CÓDIGO DE VESTIMENTA Y REGALOS -->
+    <section class="bg-white py-16">
         <div class="container mx-auto px-4 max-w-4xl text-center">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
-                <!-- Dress Code -->
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <i class="fas fa-user-tie text-3xl text-gray-400 mb-3"></i>
-                    <h3 class="font-serif text-lg mb-2">Código de Vestimenta</h3>
-                    <p class="text-gray-800 font-bold">Formal / Etiqueta</p>
-                    <p class="text-xs text-gray-500 mt-2">Rogamos etiqueta rigurosa.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                <div class="bg-soft-blue p-8 rounded-lg border border-blue-100 flex flex-col justify-center relative overflow-hidden shadow-sm">
+                    <div class="floral-corner corner-bottom-left" style="width: 80px; height: 80px;"></div>
+                    <i class="fas fa-user-tie text-4xl text-royal-blue mb-4 relative z-20"></i>
+                    <h3 class="font-serif text-lg mb-2 relative z-20">Código de Vestimenta</h3>
+                    <p class="text-gray-800 font-bold relative z-20">Formal / Etiqueta</p>
+                    <p class="text-xs text-gray-500 mt-2 relative z-20">Rogamos etiqueta rigurosa.</p>
                 </div>
-
-                <!-- Regalos -->
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <i class="fas fa-gift text-3xl text-gray-400 mb-3"></i>
-                    <h3 class="font-serif text-lg mb-2">Mesa de Regalos</h3>
-                    <p class="text-gray-600 text-sm">Su presencia es nuestro mejor regalo.</p>
-                    <p class="text-xs text-gray-500 mt-2">Dispondremos de buzón de sobres.</p>
+                <div class="bg-soft-blue p-8 rounded-lg border border-blue-100 flex items-center justify-center min-h-[200px] relative overflow-hidden shadow-sm">
+                    <div class="floral-corner corner-bottom-right" style="width: 80px; height: 80px;"></div>
+                    <i class="fas fa-gift text-6xl text-royal-blue drop-shadow-sm relative z-20"></i>
                 </div>
-
             </div>
         </div>
     </section>
+
+    <!-- FOTO 6: SEPARADOR FINAL -->
+    <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/oir7Sv6.jpeg');"></div>
 
     <!-- FOOTER: CONFIRMACIÓN WHATSAPP -->
-    <footer class="bg-dark-text text-white py-16 text-center px-4">
-        <h2 class="font-serif text-2xl mb-6">Confirmación de Asistencia</h2>
-        <p class="mb-8 text-gray-300 text-sm max-w-xs mx-auto">Por favor confirmar antes del 1 de Marzo.</p>
-        
-        <!-- Botón de WhatsApp -->
-        <a href="https://wa.me/524435296595?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Otilia%20y%20Sergio.%20Seremos%20[NÚMERO]%20personas." target="_blank" class="inline-flex items-center bg-green-500 text-white px-6 py-3 rounded-full font-bold hover:bg-green-600 transition duration-300 shadow-lg text-base w-full max-w-xs justify-center">
-            <i class="fab fa-whatsapp text-2xl mr-3"></i> Confirmar
-        </a>
+    <footer class="bg-royal-blue text-white py-16 text-center px-4 relative">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="relative z-10">
+            <h2 class="font-serif text-3xl mb-8">¡Los esperamos!</h2>
+            <h3 class="font-serif text-xl mb-6">Confirmación de Asistencia</h3>
+            <p class="mb-8 text-blue-100 text-sm max-w-xs mx-auto">Por favor confirmar antes del 1 de Marzo.</p>
+            
+            <a href="https://wa.me/524435296595?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Sergio%20y%20Otilia.%20Seremos%20[NÚMERO]%20personas." target="_blank" class="inline-flex items-center bg-white text-royal-blue px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition duration-300 shadow-lg text-lg w-full max-w-xs justify-center">
+                <i class="fab fa-whatsapp text-2xl mr-3"></i> Confirmar
+            </a>
 
-        <div class="mt-16 border-t border-gray-700 pt-8">
-            <p class="font-script text-2xl text-gold-wedding">Otilia & Sergio</p>
-            <p class="text-[10px] text-gray-500 mt-2 tracking-widest uppercase">10.04.2026</p>
+            <div class="mt-16 border-t border-blue-700 pt-8">
+                <p class="font-script text-3xl text-gold-wedding">Sergio & Otilia</p>
+                <p class="text-[10px] text-blue-200 mt-2 tracking-widest uppercase">10.04.2026</p>
+            </div>
         </div>
     </footer>
 
-    <!-- JAVASCRIPT: Lógica de la Cuenta Regresiva -->
+    <!-- JAVASCRIPT -->
     <script>
-        // Fecha objetivo: 10 de Abril, 2026 a las 12:00:00
+        // Cuenta regresiva
         const weddingDate = new Date("April 10, 2026 12:00:00").getTime();
-
         const countdownFunction = setInterval(function() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
-
-            // Cálculos de tiempo
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Insertar en el HTML
             document.getElementById("days").innerHTML = days;
             document.getElementById("hours").innerHTML = hours;
             document.getElementById("minutes").innerHTML = minutes;
             document.getElementById("seconds").innerHTML = seconds;
-
-            // Si la cuenta llega a cero
             if (distance < 0) {
                 clearInterval(countdownFunction);
                 document.getElementById("countdown").innerHTML = "<div class='text-4xl w-full'>¡Es hoy!</div>";
             }
         }, 1000);
+
+        // Control de Música
+        const music = document.getElementById("bg-music");
+        const musicBtn = document.getElementById("music-btn");
+        const musicIcon = document.getElementById("music-icon");
+        const musicPing = document.getElementById("music-ping");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                musicIcon.classList.remove("fa-play");
+                musicIcon.classList.add("fa-pause");
+                musicPing.classList.remove("hidden");
+            } else {
+                music.pause();
+                musicIcon.classList.remove("fa-pause");
+                musicIcon.classList.add("fa-play");
+                musicPing.classList.add("hidden");
+            }
+        }
+
+        // Intentar autoejecutar
+        window.addEventListener('load', () => {
+            music.play().then(() => {
+                musicIcon.classList.remove("fa-play");
+                musicIcon.classList.add("fa-pause");
+                musicPing.classList.remove("hidden");
+            }).catch(error => {
+                console.log("Autoplay bloqueado");
+            });
+        });
     </script>
 </body>
 </html>
