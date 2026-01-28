@@ -40,16 +40,36 @@
 
     <style>
         /* ESTILOS PERSONALIZADOS */
+        /* Parallax optimizado para móviles y escritorio */
         .parallax {
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            background-attachment: fixed; 
+            position: relative;
+        }
+        
+        /* Truco para Parallax en iOS que suele bloquear 'background-attachment: fixed' */
+        .parallax::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: inherit;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
         }
 
         .photo-divider {
             height: 300px;
             width: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         /* Ajustes para Desktop */
@@ -64,6 +84,9 @@
             .floral-corner { width: 60px; height: 60px; }
             .floral-divider { height: 60px; margin: 10px 0; }
             .section-with-corners { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+            
+            /* En móviles desactivamos fixed en photo-divider para evitar saltos, o lo dejamos si el soporte es bueno */
+            .photo-divider { background-attachment: scroll; } 
         }
 
         .fade-in-up { animation: fadeInUp 1.5s ease-out; }
@@ -73,7 +96,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Transiciones de Entrada */
+        /* Clases para la transición de entrada */
         .content-hidden {
             opacity: 0;
             transform: translateY(30px);
@@ -87,7 +110,7 @@
 
         /* DIVISOR FLORAL */
         .floral-divider {
-            background-image: url("data:image/svg+xml,%3Csvg width='1000' height='200' viewBox='0 0 1000 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%231B3F8B' d='M500 40c-15 0-30 5-40 15-10 10-15 25-15 40s5 30 15 40c10 10 25 15 40 15s30-5 40-15c10-10 15-25 15-40s-5-30-15-40c-10-10-25-15-40-15zm0 15c10 0 15 10 15 25s-5 25-15 25-15-10-15-25 5-25 15-25z'/%3E%3Cpath fill='%231B3F8B' d='M450 90c-20 0-35-10-45-20-10-10-15-25-20-40-5-10-10-15-20-15-15 0-25 15-25 30 0 10 5 20 10 25 5 10 15 15 10 25-5 5-10 5-15 0-10-10-15-25-15-40 0-25 20-45 45-45 15 0 30 10 35 25 5 15 10 30 25 35 10 5 15 15 15 20zM550 90c20 0 35-10 45-20 10-10 15-25 20-40 5-10 10-15 20-15 15 0 25 15 25 30 0 10-5 20-10 25-5 10-15 15-10 25 5 5 10 5 15 0 10-10 15-25 15-40 0-25-20-45-45-45-15 0-30 10-35 25-5 15-10 30-25 35-10 5-15 15-15 20z'/%3E%3Cpath fill='%231B3F8B' d='M350 120c-15 0-30-5-40-15-10-10-15-25-10-40 5-15 15-25 30-30 15-5 30 0 40 10 10 10 10 25 0 35-5 5-10 5-15 5-5 0-10-5-10-10 0-5 5-10 10-10 5 0 5-5 0-10-5-5-10-5-15 0-10 5-15 15-10 25 5 10 15 15 20 15zM650 120c15 0 30-5 40-15 10-10 15-25 10-40-5-15-15-25-30-30-15-5-30 0-40 10-10 10-10 25 0 35 5 5 10 5 15 5 5 0 10-5 10-10 0-5-5-10-10-10-5 0-5-5 0-10 5-5 10-5 15 0 10 5 15 15 10 25-5 10-15 15-20 15z'/%3E%3Cpath fill='%231B3F8B' d='M250 100c-30 0-50-20-60-40-5-15-5-30 0-45 5-10 15-15 25-15s20 5 25 15c5 10 5 25-5 35-10 10-25 10-35 0-5-5-5-10 0-15-5-5-10-5-15 0-5 5-10 5-15 0-10-5-10-15-5-25 5-5 10-10 20-10s15 5 20 15c5 10 5 25-5 35-10 20-30 40-60 40zM750 100c30 0 50-20 60-40 5-15 5-30 0-45-5-10-15-15-25-15s-20 5-25 15c-5 10-5 25 5 35 10 10 25 10 35 0 5-5 5-10 0-15-5-5-10-5-15 0-5 5-10 5-15 0-10-5-10-15-5-25 5-5 10-10 20-10s15 5 20 15c5 10 5 25-5 35-10 20-25 35-50 35s-40-15-50-35c-10-20-10-35-5-45 5-10 15-15 25-15s20 5 25 15c5 10 5 25-5 35-10 10-25 10-35 0-5-5-5-10 0-15 5-5 10-5 15 0 5 5 10 5 15 0 10-5 10-15 5-25-5-5-10-10-20-10s-15 5-20 15c-5 10-5 25 5 35 10 20 30 40 60 40z'/%3E%3Cpath fill='%231B3F8B' d='M100 110c-20 0-35-10-45-20-10-15-10-30 0-45 5-10 15-15 25-15 15 0 25 10 30 20 5 15 0 30-10 40-10 10-20 20-35 20zm0-5c10 0 15-5 20-10 10-10 10-25 0-35-5-5-10-10-20-10-10 0-15 5-20 15-5 10-5 20 0 30 5 5 10 10 20 10zM900 110c20 0 35-10 45-20 10-15 10-30 0-45-5-10-15-15-25-15-15 0-25 10-30 20-5 15 0 30 10 40 10 10 20 20 35 20zm0-5c-10 0-15-5-20-10-10-10-10-25 0-35 5-5 10-10 20-10 10 0 15 5 20 15 5 10 5 20 0 30-5 5-10 10-20 10z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='1000' height='200' viewBox='0 0 1000 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%231B3F8B' d='M500 40c-15 0-30 5-40 15-10 10-15 25-15 40s5 30 15 40c10 10 25 15 40 15s30-5 40-15c10-10 15-25 15-40s-5-30-15-40c-10-10-25-15-40-15zm0 15c10 0 15 10 15 25s-5 25-15 25-15-10-15-25 5-25 15-25z'/%3E%3Cpath fill='%231B3F8B' d='M450 90c-20 0-35-10-45-20-10-10-15-25-20-40-5-10-10-15-20-15-15 0-25 15-25 30 0 10 5 20 10 25 5 10 15 15 10 25-5 5-10 5-15 0-10-10-15-25-15-40 0-25 20-45 45-45 15 0 30 10 35 25 5 15 10 30-25 35-10 5-15 15-15 20zM550 90c20 0 35-10 45-20 10-10 15-25 20-40 5-10 10-15 20-15 15 0 25 15 25 30 0 10-5 20-10 25-5 10-15 15-10 25 5 5 10 5 15 0 10-10 15-25 15-40 0-25-20-45-45-45-15 0-30 10-35 25-5 15-10 30-25 35-10 5-15 15-15 20z'/%3E%3Cpath fill='%231B3F8B' d='M350 120c-15 0-30-5-40-15-10-10-15-25-10-40 5-15 15-25 30-30 15-5 30 0 40 10 10 10 10 25 0 35-5 5-10 5-15 5-5 0-10-5-10-10 0-5 5-10 10-10 5 0 5-5 0-10-5-5-10-5-15 0-10 5-15 15-10 25 5 10 15 15 20 15zM650 120c15 0 30-5 40-15 10-10 15-25 10-40-5-15-15-25-30-30-15-5-30 0-40 10-10 10-10 25 0 35 5 5 10 5 15 5 5 0 10-5 10-10 0-5-5-10-10-10-5 0-5-5 0-10 5-5 10-5 15 0 10 5 15 15 10 25-5 10-15 15-20 15z'/%3E%3Cpath fill='%231B3F8B' d='M250 100c-30 0-50-20-60-40-5-15-5-30 0-45 5-10 15-15 25-15s20 5 25 15c5 10 5 25-5 35-10 10-25 10-35 0-5-5-5-10 0-15-5-5-10-5-15 0-5 5-10 5-15 0-10-5-10-15-5-25 5-5 10-10 20-10s15 5 20 15c5 10 5 25-5 35-10 20-30 40-60 40zM750 100c30 0 50-20 60-40 5-15 5-30 0-45-5-10-15-15-25-15s-20 5-25 15c-5 10-5 25 5 35 10 10 25 10 35 0 5-5 5-10 0-15-5-5-10-5-15 0-5 5-10 5-15 0-10-5-10-15-5-25 5-5 10-10 20-10s15 5 20 15c5 10 5 25-5 35-10 20-25 35-50 35s-40-15-50-35c-10-20-10-35-5-45 5-10 15-15 25-15s20 5 25 15c5 10 5 25-5 35-10 10-25 10-35 0-5-5-5-10 0-15 5-5 10-5 15 0 5 5 10 5 15 0 10-5 10-15 5-25-5-5-10-10-20-10s-15 5-20 15c-5 10-5 25 5 35 10 20 30 40 60 40z'/%3E%3Cpath fill='%231B3F8B' d='M100 110c-20 0-35-10-45-20-10-15-10-30 0-45 5-10 15-15 25-15 15 0 25 10 30 20 5 15 0 30-10 40-10 10-20 20-35 20zm0-5c10 0 15-5 20-10 10-10 10-25 0-35-5-5-10-10-20-10-10 0-15 5-20 15-5 10-5 20 0 30 5 5 10 10 20 10zM900 110c20 0 35-10 45-20 10-15 10-30 0-45-5-10-15-15-25-15-15 0-25 10-30 20-5 15 0 30 10 40 10 10 20 20 35 20zm0-5c-10 0-15-5-20-10-10-10-10-25 0-35 5-5 10-10 20-10 10 0 15 5 20 15 5 10 5 20 0 30-5 5-10 10-20 10z'/%3E%3C/svg%3E");
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
@@ -118,15 +141,16 @@
 </head>
 <body class="bg-soft-blue text-dark-text font-body antialiased overflow-x-hidden">
 
-    <!-- REPRODUCTOR DE MÚSICA (CORREGIDO) -->
-    <!-- 'preload' es crucial para que esté listo al dar clic -->
+    <!-- REPRODUCTOR DE MÚSICA -->
+    <!-- PRELOAD AUTO Y RUTA RELATIVA: "cancion.mp3" -->
+    <!-- Recuerda subir el archivo cancion.mp3 a la misma carpeta en GitHub -->
     <audio id="bg-music" loop preload="auto">
-        <source src="https://files.catbox.moe/mw2gmm.mp3" type="audio/mpeg">
+        <source src="cancion.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
     <!-- PANTALLA DE BIENVENIDA -->
-    <!-- Fondo oscuro transparente para ver el Hero detrás, pero sin el texto de la invitación -->
+    <!-- Fondo oscuro transparente -->
     <div id="welcome-modal" class="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm text-center px-4 transition-opacity duration-1000">
         
         <div class="relative z-10 animate-fade-in-up bg-white p-10 rounded-lg shadow-2xl border-2 border-royal-blue max-w-sm mx-auto">
@@ -139,7 +163,7 @@
         </div>
     </div>
 
-    <!-- BOTÓN FLOTANTE (Oculto inicialmente) -->
+    <!-- BOTÓN FLOTANTE (Visible desde el inicio por seguridad) -->
     <button id="music-btn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-50 bg-white/90 text-royal-blue p-4 rounded-full shadow-2xl border-2 border-royal-blue hover:scale-110 transition-transform duration-300 group hidden">
         <div class="relative">
             <i id="music-icon" class="fas fa-pause text-xl"></i>
@@ -408,6 +432,40 @@
         const scrollIndicator = document.getElementById("scroll-indicator");
         const mainBody = document.getElementById("main-body-content");
 
+        // Función para desbloquear audio
+        function unlockAudio() {
+            // Asegurar volumen al máximo
+            music.volume = 1.0;
+            music.muted = false;
+            
+            // Intento directo de reproducir
+            music.play().then(() => {
+                musicIcon.classList.remove("fa-play");
+                musicIcon.classList.add("fa-pause");
+            }).catch((error) => {
+                console.log("Fallo inicial, se mostrará botón flotante: ", error);
+            });
+
+            // Ocultar modal
+            welcomeModal.classList.add('opacity-0', 'pointer-events-none');
+            
+            // Mostrar contenido principal
+            setTimeout(() => {
+                mainHeader.classList.remove('content-hidden');
+                mainHeader.classList.add('content-visible');
+                scrollIndicator.classList.remove('content-hidden');
+                scrollIndicator.classList.add('content-visible');
+                mainBody.classList.remove('content-hidden');
+                mainBody.classList.add('content-visible');
+                musicBtn.classList.remove('hidden');
+            }, 500);
+
+            // Eliminar listeners
+            document.removeEventListener('click', unlockAudio);
+            document.removeEventListener('touchstart', unlockAudio);
+        }
+
+        // Control Manual del Botón Flotante
         function toggleMusic() {
             if (music.paused) {
                 music.play();
@@ -420,31 +478,17 @@
             }
         }
 
-        // Lógica del botón de entrada
-        enterBtn.addEventListener('click', () => {
-            // Reproducir música (Importante: esto debe suceder en el evento click)
-            music.play().then(() => {
-                musicIcon.classList.remove("fa-play");
-                musicIcon.classList.add("fa-pause");
-            }).catch(e => console.log("Audio play failed: ", e));
-
-            // Ocultar modal
-            welcomeModal.classList.add('opacity-0', 'pointer-events-none');
-            
-            // Mostrar contenido principal con retardo para efecto suave
-            setTimeout(() => {
-                mainHeader.classList.remove('content-hidden');
-                mainHeader.classList.add('content-visible');
-                
-                scrollIndicator.classList.remove('content-hidden');
-                scrollIndicator.classList.add('content-visible');
-                
-                mainBody.classList.remove('content-hidden');
-                mainBody.classList.add('content-visible');
-                
-                musicBtn.classList.remove('hidden');
-            }, 500);
+        // Asignar el desbloqueo al botón de entrada
+        enterBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            unlockAudio();
         });
+        
+        // Listener extra por si acaso
+        welcomeModal.addEventListener('touchstart', () => {
+             music.load();
+        }, {once:true});
+
 
         // Slideshow Automático
         let currentSlide = 0;
