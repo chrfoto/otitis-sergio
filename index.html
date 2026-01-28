@@ -40,53 +40,36 @@
 
     <style>
         /* ESTILOS PERSONALIZADOS */
-        /* Parallax optimizado para móviles y escritorio */
         .parallax {
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            position: relative;
-        }
-        
-        /* Truco para Parallax en iOS que suele bloquear 'background-attachment: fixed' */
-        .parallax::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: inherit;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            z-index: -1;
+            /* Fixed siempre para el efecto de fondo */
+            background-attachment: fixed; 
         }
 
         .photo-divider {
             height: 300px;
             width: 100%;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
         }
 
         /* Ajustes para Desktop */
         @media (min-width: 768px) {
             .photo-divider { height: 400px; }
+            
+            /* Flores grandes solo en PC */
             .floral-corner { width: 140px; height: 140px; }
             .floral-divider { height: 120px; }
         }
 
         /* Ajustes para Móvil */
         @media (max-width: 767px) {
+            /* Flores más pequeñas en celular para no tapar texto */
             .floral-corner { width: 60px; height: 60px; }
             .floral-divider { height: 60px; margin: 10px 0; }
-            .section-with-corners { padding-top: 3rem !important; padding-bottom: 3rem !important; }
             
-            /* En móviles desactivamos fixed en photo-divider para evitar saltos, o lo dejamos si el soporte es bueno */
-            .photo-divider { background-attachment: scroll; } 
+            /* Ajuste de padding para secciones con esquinas */
+            .section-with-corners { padding-top: 3rem !important; padding-bottom: 3rem !important; }
         }
 
         .fade-in-up { animation: fadeInUp 1.5s ease-out; }
@@ -96,7 +79,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Clases para la transición de entrada */
+        /* Clases para la transición de entrada "Bonita" */
         .content-hidden {
             opacity: 0;
             transform: translateY(30px);
@@ -142,15 +125,13 @@
 <body class="bg-soft-blue text-dark-text font-body antialiased overflow-x-hidden">
 
     <!-- REPRODUCTOR DE MÚSICA -->
-    <!-- PRELOAD AUTO Y RUTA RELATIVA: "cancion.mp3" -->
-    <!-- Recuerda subir el archivo cancion.mp3 a la misma carpeta en GitHub -->
+    <!-- PRELOAD AUTO Y RUTA RELATIVA: "canción.mp3" (con acento como se solicitó) -->
     <audio id="bg-music" loop preload="auto">
-        <source src="cancion.mp3" type="audio/mpeg">
+        <source src="canción.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
     <!-- PANTALLA DE BIENVENIDA -->
-    <!-- Fondo oscuro transparente -->
     <div id="welcome-modal" class="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm text-center px-4 transition-opacity duration-1000">
         
         <div class="relative z-10 animate-fade-in-up bg-white p-10 rounded-lg shadow-2xl border-2 border-royal-blue max-w-sm mx-auto">
@@ -163,7 +144,7 @@
         </div>
     </div>
 
-    <!-- BOTÓN FLOTANTE (Visible desde el inicio por seguridad) -->
+    <!-- BOTÓN FLOTANTE -->
     <button id="music-btn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-50 bg-white/90 text-royal-blue p-4 rounded-full shadow-2xl border-2 border-royal-blue hover:scale-110 transition-transform duration-300 group hidden">
         <div class="relative">
             <i id="music-icon" class="fas fa-pause text-xl"></i>
