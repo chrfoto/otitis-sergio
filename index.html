@@ -40,25 +40,32 @@
 
     <style>
         /* ESTILOS PERSONALIZADOS */
-        .parallax {
-            background-position: center;
+        
+        /* Base para Parallax y Divisores */
+        .parallax, .photo-divider {
+            background-position: center center; /* Centrado perfecto */
             background-repeat: no-repeat;
             background-size: cover;
-            background-attachment: fixed; 
+            /* Por defecto en móvil usamos scroll para evitar el ZOOM excesivo */
+            background-attachment: scroll; 
         }
 
         .photo-divider {
-            height: 300px;
+            height: 300px; /* Altura móvil */
             width: 100%;
         }
 
-        /* Ajustes para Desktop */
+        /* Ajustes específicos para Desktop (Pantallas grandes) */
         @media (min-width: 768px) {
+            /* Solo en PC activamos el efecto fixed para que se vea bonito sin romperse */
+            .parallax, .photo-divider { 
+                background-attachment: fixed; 
+            }
             .photo-divider { height: 400px; }
             .ornament-corner { width: 180px; height: 180px; }
         }
 
-        /* Ajustes para Móvil */
+        /* Ajustes específicos para Móvil */
         @media (max-width: 767px) {
             .ornament-corner { width: 100px; height: 100px; }
             .section-with-corners { padding-top: 4rem !important; padding-bottom: 4rem !important; }
@@ -86,9 +93,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- NUEVOS ORNAMENTOS: ALCATRACES REALISTAS (LINE ART) --- */
-        /* Estilo: Dibujo botánico lineal, similar a la referencia */
-        
+        /* ORNAMENTOS: ALCATRACES REALISTAS (LINE ART) */
         .ornament-corner {
             position: absolute;
             background-repeat: no-repeat;
@@ -98,30 +103,13 @@
             pointer-events: none;
             z-index: 10;
             mix-blend-mode: multiply;
-            /* SVG Dibujo Lineal de Alcatraz */
             background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,190 Q40,150 60,110 Q70,90 85,75 Q100,60 120,55 Q135,50 150,60 Q160,70 150,85 Q140,100 125,105 Q110,110 95,95 Q90,85 95,75 M95,75 Q100,65 115,60 M35,185 Q50,140 75,100 M85,75 Q80,60 90,50 Q105,40 120,40 Q140,40 155,50' stroke='%231B3F8B' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M40,180 Q60,130 90,100 Q110,80 130,85 Q140,88 135,100 Q130,110 115,110 Q100,110 90,100' stroke='%231B3F8B' stroke-width='1' fill='none' stroke-dasharray='2,2'/%3E%3C/svg%3E");
         }
 
-        .corner-top-left { 
-            top: -15px; 
-            left: -15px; 
-            transform: rotate(0deg); 
-        }
-        .corner-top-right { 
-            top: -15px; 
-            right: -15px; 
-            transform: scaleX(-1); 
-        }
-        .corner-bottom-left { 
-            bottom: -15px; 
-            left: -15px; 
-            transform: scaleY(-1); 
-        }
-        .corner-bottom-right { 
-            bottom: -15px; 
-            right: -15px; 
-            transform: rotate(180deg); 
-        }
+        .corner-top-left { top: -15px; left: -15px; transform: rotate(0deg); }
+        .corner-top-right { top: -15px; right: -15px; transform: scaleX(-1); }
+        .corner-bottom-left { bottom: -15px; left: -15px; transform: scaleY(-1); }
+        .corner-bottom-right { bottom: -15px; right: -15px; transform: rotate(180deg); }
 
         /* Divisor pequeño (Tallo horizontal) */
         .floral-divider-small {
