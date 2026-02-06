@@ -40,32 +40,26 @@
 
     <style>
         /* ESTILOS PERSONALIZADOS */
-        
-        /* Base para Parallax y Divisores */
-        .parallax, .photo-divider {
-            background-position: center center; /* Centrado perfecto */
+        .parallax {
+            background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            /* Por defecto en móvil usamos scroll para evitar el ZOOM excesivo */
-            background-attachment: scroll; 
+            /* Fixed siempre para el efecto de fondo */
+            background-attachment: fixed; 
         }
 
         .photo-divider {
-            height: 300px; /* Altura móvil */
+            height: 300px;
             width: 100%;
         }
 
-        /* Ajustes específicos para Desktop (Pantallas grandes) */
+        /* Ajustes para Desktop */
         @media (min-width: 768px) {
-            /* Solo en PC activamos el efecto fixed para que se vea bonito sin romperse */
-            .parallax, .photo-divider { 
-                background-attachment: fixed; 
-            }
             .photo-divider { height: 400px; }
-            .ornament-corner { width: 180px; height: 180px; }
+            .floral-corner { width: 180px; height: 180px; }
         }
 
-        /* Ajustes específicos para Móvil */
+        /* Ajustes para Móvil */
         @media (max-width: 767px) {
             .ornament-corner { width: 100px; height: 100px; }
             .section-with-corners { padding-top: 4rem !important; padding-bottom: 4rem !important; }
@@ -264,7 +258,8 @@
                     <img src="https://i.imgur.com/55vIAzI.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Foto Boda">
                     <img src="https://i.imgur.com/vCtCdDT.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
                     <img src="https://i.imgur.com/dHklgb8.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
-                    <img src="https://i.imgur.com/da3VYxe.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
+                    <!-- FOTO REEMPLAZADA AQUÍ: -->
+                    <img src="https://i.imgur.com/vsDisrB.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
                     <img src="https://i.imgur.com/ou6xaYU.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
                     <img src="https://i.imgur.com/oir7Sv6.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
                     <img src="https://i.imgur.com/uRf30pI.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
@@ -304,7 +299,8 @@
         </section>
 
         <!-- SEPARADOR -->
-        <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/da3VYxe.jpeg');"></div>
+        <!-- FOTO REEMPLAZADA AQUÍ TAMBIÉN -->
+        <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/vsDisrB.jpeg');"></div>
 
         <!-- ITINERARIO -->
         <section class="py-16 container mx-auto px-4 bg-soft-blue relative">
