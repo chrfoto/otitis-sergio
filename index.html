@@ -44,8 +44,8 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            /* Fixed siempre para el efecto de fondo */
-            background-attachment: fixed; 
+            /* CORRECCIÓN SAFARI: Usar scroll por defecto en móviles para evitar el zoom excesivo */
+            background-attachment: scroll; 
         }
 
         .photo-divider {
@@ -55,8 +55,10 @@
 
         /* Ajustes para Desktop */
         @media (min-width: 768px) {
+            /* Solo activamos el efecto fijo en pantallas grandes donde funciona bien */
+            .parallax { background-attachment: fixed; }
             .photo-divider { height: 400px; }
-            .floral-corner { width: 180px; height: 180px; }
+            .ornament-corner { width: 180px; height: 180px; }
         }
 
         /* Ajustes para Móvil */
@@ -171,6 +173,7 @@
     </button>
 
     <!-- FOTO 1: PORTADA -->
+    <!-- Se mantiene el estilo background-attachment definido en CSS (scroll en móvil, fixed en desktop) -->
     <header class="parallax h-screen flex flex-col justify-center items-center text-center text-white relative px-4 border-b-8 border-royal-blue" style="background-image: linear-gradient(rgba(27, 63, 139, 0.3), rgba(27, 63, 139, 0.3)), url('https://i.imgur.com/55vIAzI.jpeg');">
         
         <!-- CONTENIDO PRINCIPAL OCULTO -->
@@ -208,8 +211,9 @@
             </div>
         </section>
 
-        <!-- SEPARADOR -->
-        <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/vCtCdDT.jpeg');"></div>
+        <!-- FOTO 2: SEPARADOR -->
+        <!-- AQUÍ SE REEMPLAZÓ LA FOTO DE LOS MOÑOS POR LA NUEVA -->
+        <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/vsDisrB.jpeg');"></div>
 
         <!-- PADRES Y PADRINOS -->
         <section class="py-16 px-4 bg-soft-blue">
@@ -258,7 +262,7 @@
                     <img src="https://i.imgur.com/55vIAzI.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Foto Boda">
                     <img src="https://i.imgur.com/vCtCdDT.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
                     <img src="https://i.imgur.com/dHklgb8.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
-                    <!-- FOTO REEMPLAZADA AQUÍ: -->
+                    <!-- FOTO REEMPLAZADA EN EL CARRUSEL -->
                     <img src="https://i.imgur.com/vsDisrB.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
                     <img src="https://i.imgur.com/ou6xaYU.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
                     <img src="https://i.imgur.com/oir7Sv6.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
@@ -299,7 +303,6 @@
         </section>
 
         <!-- SEPARADOR -->
-        <!-- FOTO REEMPLAZADA AQUÍ TAMBIÉN -->
         <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/vsDisrB.jpeg');"></div>
 
         <!-- ITINERARIO -->
@@ -413,10 +416,18 @@
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
+            
+            const daysElement = document.getElementById("days");
+            const hoursElement = document.getElementById("hours");
+            const minutesElement = document.getElementById("minutes");
+            const secondsElement = document.getElementById("seconds");
+
+            if (daysElement && hoursElement && minutesElement && secondsElement) {
+                daysElement.innerHTML = days;
+                hoursElement.innerHTML = hours;
+                minutesElement.innerHTML = minutes;
+                secondsElement.innerHTML = seconds;
+            }
         }, 1000);
 
         // Control de Música y Modal
@@ -442,42 +453,46 @@
         }
 
         // Lógica de Entrada (SOLO CLICK)
-        enterBtn.addEventListener('click', () => {
-            // 1. Iniciar música
-            music.play().then(() => {
-                musicIcon.classList.remove("fa-play");
-                musicIcon.classList.add("fa-pause");
-            }).catch(console.log);
+        if(enterBtn) {
+            enterBtn.addEventListener('click', () => {
+                // 1. Iniciar música
+                music.play().then(() => {
+                    musicIcon.classList.remove("fa-play");
+                    musicIcon.classList.add("fa-pause");
+                }).catch(console.log);
 
-            // 2. Ocultar modal
-            welcomeModal.classList.add('opacity-0', 'pointer-events-none');
-            
-            // 3. Mostrar contenido
-            setTimeout(() => {
-                mainHeader.classList.remove('content-hidden');
-                mainHeader.classList.add('content-visible');
+                // 2. Ocultar modal
+                welcomeModal.classList.add('opacity-0', 'pointer-events-none');
                 
-                scrollIndicator.classList.remove('content-hidden');
-                scrollIndicator.classList.add('content-visible');
-                
-                mainBody.classList.remove('content-hidden');
-                mainBody.classList.add('content-visible');
-                
-                musicBtn.classList.remove('hidden');
-            }, 500);
-        });
+                // 3. Mostrar contenido
+                setTimeout(() => {
+                    mainHeader.classList.remove('content-hidden');
+                    mainHeader.classList.add('content-visible');
+                    
+                    scrollIndicator.classList.remove('content-hidden');
+                    scrollIndicator.classList.add('content-visible');
+                    
+                    mainBody.classList.remove('content-hidden');
+                    mainBody.classList.add('content-visible');
+                    
+                    musicBtn.classList.remove('hidden');
+                }, 500);
+            });
+        }
 
         // Slideshow
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         
-        setInterval(() => {
-            slides[currentSlide].classList.remove('opacity-100');
-            slides[currentSlide].classList.add('opacity-0');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.remove('opacity-0');
-            slides[currentSlide].classList.add('opacity-100');
-        }, 3500);
+        if (slides.length > 0) {
+            setInterval(() => {
+                slides[currentSlide].classList.remove('opacity-100');
+                slides[currentSlide].classList.add('opacity-0');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.remove('opacity-0');
+                slides[currentSlide].classList.add('opacity-100');
+            }, 3500);
+        }
     </script>
 </body>
 </html>
