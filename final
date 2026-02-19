@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de Sergio & Otilia</title>
+    <meta name="description" content="Invitación a la boda de Sergio y Otilia - 10 de Abril, 2026">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Iconos FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Fuentes Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Configuración de Colores Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold-wedding': '#D4AF37',
+                        'royal-blue': '#1B3F8B',
+                        'soft-blue': '#F8FAFC',
+                        'dark-text': '#1A202C',
+                    },
+                    fontFamily: {
+                        'script': ['"Great Vibes"', 'cursive'],
+                        'serif': ['"Cinzel"', 'serif'],
+                        'body': ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ESTILOS PERSONALIZADOS */
+        .parallax {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* CORRECCIÓN SAFARI: Usar scroll por defecto en móviles para evitar el zoom excesivo */
+            background-attachment: scroll; 
+        }
+
+        .photo-divider {
+            height: 300px;
+            width: 100%;
+        }
+
+        /* Ajustes para Desktop */
+        @media (min-width: 768px) {
+            /* Solo activamos el efecto fijo en pantallas grandes donde funciona bien */
+            .parallax { background-attachment: fixed; }
+            .photo-divider { height: 400px; }
+            .ornament-corner { width: 180px; height: 180px; }
+        }
+
+        /* Ajustes para Móvil */
+        @media (max-width: 767px) {
+            .ornament-corner { width: 100px; height: 100px; }
+            .section-with-corners { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+        }
+
+        .fade-in-up { animation: fadeInUp 1.5s ease-out; }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .content-visible {
+            display: block;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ORNAMENTOS: ALCATRACES REALISTAS (LINE ART) */
+        .ornament-corner {
+            position: absolute;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: 10;
+            mix-blend-mode: multiply;
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,190 Q40,150 60,110 Q70,90 85,75 Q100,60 120,55 Q135,50 150,60 Q160,70 150,85 Q140,100 125,105 Q110,110 95,95 Q90,85 95,75 M95,75 Q100,65 115,60 M35,185 Q50,140 75,100 M85,75 Q80,60 90,50 Q105,40 120,40 Q140,40 155,50' stroke='%231B3F8B' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M40,180 Q60,130 90,100 Q110,80 130,85 Q140,88 135,100 Q130,110 115,110 Q100,110 90,100' stroke='%231B3F8B' stroke-width='1' fill='none' stroke-dasharray='2,2'/%3E%3C/svg%3E");
+        }
+
+        .corner-top-left { top: -15px; left: -15px; transform: rotate(0deg); }
+        .corner-top-right { top: -15px; right: -15px; transform: scaleX(-1); }
+        .corner-bottom-left { bottom: -15px; left: -15px; transform: scaleY(-1); }
+        .corner-bottom-right { bottom: -15px; right: -15px; transform: rotate(180deg); }
+
+        /* Divisor pequeño (Tallo horizontal) */
+        .floral-divider-small {
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='50' viewBox='0 0 200 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10,25 Q60,5 100,25 Q140,45 190,25 M100,25 Q110,15 120,15 Q130,15 125,25 Q120,35 110,35 Q100,35 95,25' stroke='%231B3F8B' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 40px;
+            width: 100%;
+            margin: 15px 0;
+            opacity: 0.7;
+            mix-blend-mode: multiply;
+        }
+
+        /* Divisor Grande (Ramo lineal) */
+        .floral-divider {
+            background-image: url("data:image/svg+xml,%3Csvg width='600' height='150' viewBox='0 0 600 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%231B3F8B' stroke-width='1.5' fill='none'%3E%3Cpath d='M150,120 Q200,80 250,50 Q270,40 290,50 Q300,55 295,65 Q290,75 275,70 Q260,65 255,55'/%3E%3Cpath d='M450,120 Q400,80 350,50 Q330,40 310,50 Q300,55 305,65 Q310,75 325,70 Q340,65 345,55'/%3E%3Cpath d='M300,130 Q300,90 300,40 Q290,20 300,10 Q310,20 300,40' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 80px;
+            width: 100%;
+            margin: 10px 0;
+            opacity: 0.8;
+            mix-blend-mode: multiply;
+        }
+
+        .music-spin { animation: spin 4s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="bg-soft-blue text-dark-text font-body antialiased overflow-x-hidden">
+
+    <!-- REPRODUCTOR DE MÚSICA -->
+    <audio id="bg-music" loop>
+        <source src="https://media.vocaroo.com/mp3/15vGCPQr73Yb" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- PANTALLA DE BIENVENIDA -->
+    <div id="welcome-modal" class="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-white/80 backdrop-blur-[1px] text-center px-4 transition-opacity duration-1000">
+        
+        <div class="relative z-10 animate-fade-in-up bg-white p-10 rounded-lg shadow-2xl border-2 border-royal-blue max-w-sm mx-auto">
+            <!-- Esquinas Alcatraz en Bienvenida -->
+            <div class="ornament-corner corner-top-left" style="width: 90px; height: 90px;"></div>
+            <div class="ornament-corner corner-top-right" style="width: 90px; height: 90px;"></div>
+
+            <p class="font-serif text-gray-500 tracking-widest uppercase mb-4 text-sm mt-4">Bienvenidos a la boda de</p>
+            <h1 class="font-script text-5xl md:text-7xl text-royal-blue mb-8 drop-shadow-sm">Sergio & Otilia</h1>
+            
+            <button id="enter-btn" class="bg-royal-blue text-white px-8 py-3 rounded-full font-serif tracking-widest hover:bg-blue-800 transition shadow-lg animate-pulse text-sm border border-blue-400 mb-4">
+                ABRIR INVITACIÓN
+            </button>
+        </div>
+    </div>
+
+    <!-- BOTÓN FLOTANTE (Oculto inicialmente) -->
+    <button id="music-btn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-50 bg-white/90 text-royal-blue p-4 rounded-full shadow-2xl border-2 border-royal-blue hover:scale-110 transition-transform duration-300 group hidden">
+        <div class="relative">
+            <i id="music-icon" class="fas fa-pause text-xl"></i>
+            <span class="absolute -top-1 -right-1 flex h-3 w-3">
+              <span id="music-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-royal-blue opacity-75"></span>
+            </span>
+        </div>
+    </button>
+
+    <!-- FOTO 1: PORTADA -->
+    <!-- Se mantiene el estilo background-attachment definido en CSS (scroll en móvil, fixed en desktop) -->
+    <header class="parallax h-screen flex flex-col justify-center items-center text-center text-white relative px-4 border-b-8 border-royal-blue" style="background-image: linear-gradient(rgba(27, 63, 139, 0.3), rgba(27, 63, 139, 0.3)), url('https://i.imgur.com/55vIAzI.jpeg');">
+        
+        <!-- CONTENIDO PRINCIPAL OCULTO -->
+        <div id="main-content-header" class="z-10 w-full max-w-md mx-auto content-hidden">
+            <div class="mb-4 text-4xl text-white/80"><i class="fas fa-spa"></i></div>
+            <p class="text-lg md:text-2xl tracking-widest uppercase mb-2 font-serif text-shadow">¡Nos Casamos!</p>
+            <h1 class="font-script text-6xl md:text-8xl mb-4 text-white drop-shadow-lg leading-tight">Sergio <br class="md:hidden"> & Otilia</h1>
+            <div class="w-20 h-1 bg-white mx-auto mb-4 shadow-lg"></div>
+            <p class="text-xl md:text-3xl font-serif tracking-wider text-shadow font-bold text-gold-wedding">VIERNES 10 ABRIL 2026</p>
+            <p class="mt-2 text-base md:text-lg italic text-shadow">Morelia, Michoacán</p>
+        </div>
+
+        <div id="scroll-indicator" class="absolute bottom-6 z-10 animate-bounce content-hidden">
+            <i class="fas fa-chevron-down text-2xl text-white"></i>
+        </div>
+    </header>
+
+    <!-- WRAPPER CONTENIDO OCULTO -->
+    <div id="main-body-content" class="content-hidden">
+
+        <!-- FRASE BÍBLICA -->
+        <section class="py-24 px-6 text-center max-w-4xl mx-auto relative bg-white overflow-hidden shadow-lg my-8 rounded-lg section-with-corners">
+            <!-- Esquinas Alcatraz -->
+            <div class="ornament-corner corner-top-left"></div>
+            <div class="ornament-corner corner-top-right"></div>
+            <div class="ornament-corner corner-bottom-left"></div>
+            <div class="ornament-corner corner-bottom-right"></div>
+
+            <div class="relative z-20 px-4 md:px-10">
+                <i class="fas fa-dove text-royal-blue text-3xl mb-4 mt-4"></i>
+                <p class="text-lg md:text-2xl text-gray-600 font-light leading-relaxed italic">
+                    "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor."
+                </p>
+                <p class="mt-4 font-serif text-royal-blue text-sm mb-4">- 1 Corintios 13:4-5</p>
+            </div>
+        </section>
+
+        <!-- FOTO 2: SEPARADOR -->
+        <!-- FOTO REEMPLAZADA (Antes era vCtCdDT) -->
+        <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/z2bpP1M.jpeg');"></div>
+
+        <!-- SECCIÓN TEXTO: PADRES Y PADRINOS -->
+        <section class="py-16 px-4 bg-soft-blue">
+            <div class="max-w-5xl mx-auto bg-white p-10 md:p-16 rounded-lg shadow-lg border-t-2 border-gold-wedding relative overflow-hidden section-with-corners">
+                <div class="ornament-corner corner-top-left"></div>
+                <div class="ornament-corner corner-top-right"></div>
+                
+                <div class="relative z-20 px-2 md:px-0">
+                    <div class="text-center mb-12">
+                        <h2 class="font-serif text-xl md:text-3xl text-royal-blue mb-2">Con la bendición de sus padres</h2>
+                        <div class="w-12 h-0.5 bg-gold-wedding mx-auto mt-2"></div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 text-center mb-10">
+                        <div>
+                            <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-2">Del Novio</h3>
+                            <p class="text-lg text-gray-700 font-light leading-snug">Rosalino Bahena Terán</p>
+                            <p class="text-lg text-gray-700 font-light leading-snug">&</p>
+                            <p class="text-lg text-gray-700 font-light leading-snug">Leonila Estrada Castillo</p>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-2 mt-4 md:mt-0">De la Novia</h3>
+                            <p class="text-lg text-gray-700 font-light leading-snug">Alejandrino Terán Mojica</p>
+                            <p class="text-lg text-gray-700 font-light leading-snug">&</p>
+                            <p class="text-lg text-gray-700 font-light leading-snug">Míguela Vargas Martínez</p>
+                        </div>
+                    </div>
+
+                    <div class="text-center border-t border-gray-100 pt-8 pb-4">
+                        <h3 class="font-serif text-sm text-gray-400 uppercase tracking-widest mb-3">Padrinos de Velación</h3>
+                        <p class="font-script text-2xl md:text-3xl text-royal-blue">Antonio Brito & Sofía Sánchez</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SLIDESHOW -->
+        <section class="bg-white py-20 relative">
+             <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-10">
+                    <h2 class="font-serif text-3xl text-royal-blue">Nuestra Historia</h2>
+                    <div class="floral-divider-small"></div>
+                </div>
+                
+                <div class="relative w-full h-[400px] md:h-[600px] rounded-lg shadow-2xl overflow-hidden border-4 border-white ring-4 ring-gray-100">
+                    <img src="https://i.imgur.com/55vIAzI.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Foto Boda">
+                    <!-- FOTO ELIMINADA DE AQUÍ (vCtCdDT) -->
+                    <img src="https://i.imgur.com/dHklgb8.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
+                    <img src="https://i.imgur.com/da3VYxe.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
+                    <img src="https://i.imgur.com/ou6xaYU.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
+                    <img src="https://i.imgur.com/oir7Sv6.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
+                    <img src="https://i.imgur.com/uRf30pI.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
+                    <img src="https://i.imgur.com/z2bpP1M.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
+                    <img src="https://i.imgur.com/6QwsJz2.jpeg" class="slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Foto Boda">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                </div>
+             </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/dHklgb8.jpeg');"></div>
+
+        <!-- CUENTA REGRESIVA -->
+        <section class="bg-white py-16 border-y border-gray-200">
+            <div class="container mx-auto px-4 relative z-20">
+                <h2 class="text-center font-serif text-2xl mb-8 text-royal-blue">Faltan</h2>
+                <div id="countdown" class="flex flex-wrap justify-center gap-4 md:gap-12 text-center font-serif">
+                    <div class="flex flex-col bg-soft-blue p-4 rounded-lg w-24 md:w-32 shadow-sm border border-blue-100">
+                        <span class="text-3xl md:text-5xl font-bold text-royal-blue" id="days">00</span>
+                        <span class="text-xs uppercase text-gray-500 tracking-widest mt-1">Días</span>
+                    </div>
+                    <div class="flex flex-col bg-soft-blue p-4 rounded-lg w-24 md:w-32 shadow-sm border border-blue-100">
+                        <span class="text-3xl md:text-5xl font-bold text-royal-blue" id="hours">00</span>
+                        <span class="text-xs uppercase text-gray-500 tracking-widest mt-1">Hrs</span>
+                    </div>
+                    <div class="flex flex-col bg-soft-blue p-4 rounded-lg w-24 md:w-32 shadow-sm border border-blue-100">
+                        <span class="text-3xl md:text-5xl font-bold text-royal-blue" id="minutes">00</span>
+                        <span class="text-xs uppercase text-gray-500 tracking-widest mt-1">Min</span>
+                    </div>
+                    <div class="flex flex-col bg-soft-blue p-4 rounded-lg w-24 md:w-32 shadow-sm border border-blue-100">
+                        <span class="text-3xl md:text-5xl font-bold text-royal-blue" id="seconds">00</span>
+                        <span class="text-xs uppercase text-gray-500 tracking-widest mt-1">Seg</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/vsDisrB.jpeg');"></div>
+
+        <!-- ITINERARIO -->
+        <section class="py-16 container mx-auto px-4 bg-soft-blue relative">
+            <div class="text-center mb-10">
+                <h2 class="font-serif text-3xl text-royal-blue">Itinerario</h2>
+                <div class="floral-divider"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg text-center border-t-2 border-gold-wedding relative overflow-hidden transform hover:-translate-y-1 transition duration-300 section-with-corners">
+                    <div class="ornament-corner corner-top-left"></div>
+                    <div class="absolute -top-6 -left-6 text-9xl text-soft-blue opacity-30"><i class="fas fa-church"></i></div>
+                    <div class="relative z-20 pt-8">
+                        <div class="w-12 h-12 bg-soft-blue rounded-full flex items-center justify-center mx-auto mb-4 text-royal-blue text-xl">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <h3 class="font-serif text-xl mb-1 text-gray-800">Ceremonia Religiosa</h3>
+                        <p class="text-royal-blue font-bold mb-4 text-base">Catedral de Morelia</p>
+                        <div class="space-y-1 text-gray-600 mb-6">
+                            <p class="text-lg font-bold"><i class="far fa-clock mr-2"></i>12:00 HRS</p>
+                            <p class="text-sm px-2 leading-tight">Av Francisco I. Madero Pte S/N, Centro Histórico</p>
+                        </div>
+                        <a href="https://maps.app.goo.gl/6WTGzU47pjVQDfj47" target="_blank" class="inline-block bg-royal-blue text-white px-6 py-2 rounded-full hover:bg-blue-800 transition duration-300 text-xs tracking-wider uppercase w-full md:w-auto">
+                            <i class="fas fa-map-marker-alt mr-2"></i>Ver Ubicación
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg text-center border-t-2 border-gold-wedding relative overflow-hidden transform hover:-translate-y-1 transition duration-300 section-with-corners">
+                    <div class="ornament-corner corner-top-right"></div>
+                    <div class="absolute -top-6 -right-6 text-9xl text-soft-blue opacity-30"><i class="fas fa-glass-cheers"></i></div>
+                    <div class="relative z-20 pt-8">
+                        <div class="w-12 h-12 bg-soft-blue rounded-full flex items-center justify-center mx-auto mb-4 text-royal-blue text-xl">
+                            <i class="fas fa-glass-cheers"></i>
+                        </div>
+                        <h3 class="font-serif text-xl mb-1 text-gray-800">Recepción</h3>
+                        <p class="text-royal-blue font-bold mb-4 text-base">Jardín de Eventos Santa Sofía</p>
+                        <div class="space-y-1 text-gray-600 mb-6">
+                            <p class="text-lg font-bold"><i class="far fa-clock mr-2"></i>16:00 HRS</p>
+                            <p class="text-sm px-2 leading-tight">Camino a la Arboleda, 58341 Morelia, Mich.</p>
+                        </div>
+                        <a href="https://maps.app.goo.gl/K7Lg4hmEF5h3aAjb9" target="_blank" class="inline-block bg-royal-blue text-white px-6 py-2 rounded-full hover:bg-blue-800 transition duration-300 text-xs tracking-wider uppercase w-full md:w-auto">
+                            <i class="fas fa-map-marker-alt mr-2"></i>Ver Ubicación
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEPARADOR -->
+        <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/ou6xaYU.jpeg');"></div>
+
+        <!-- CÓDIGO DE VESTIMENTA Y REGALOS -->
+        <section class="bg-white py-16">
+            <div class="container mx-auto px-4 max-w-4xl text-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                    <!-- Dress Code -->
+                    <div class="bg-soft-blue p-8 rounded-lg border border-blue-100 flex flex-col justify-center relative overflow-hidden shadow-sm section-with-corners">
+                        <div class="ornament-corner corner-top-left" style="width: 80px; height: 80px;"></div>
+                        <div class="relative z-20">
+                            <i class="fas fa-user-tie text-4xl text-royal-blue mb-4"></i>
+                            <h3 class="font-serif text-lg mb-2">Código de Vestimenta</h3>
+                            <p class="text-gray-800 font-bold">Formal / Etiqueta</p>
+                            <p class="text-xs text-gray-500 mt-2">Rogamos etiqueta rigurosa.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Regalos -->
+                    <div class="bg-soft-blue p-8 rounded-lg border border-blue-100 flex flex-col items-center justify-center min-h-[200px] relative overflow-hidden shadow-sm section-with-corners">
+                        <div class="ornament-corner corner-top-right" style="width: 80px; height: 80px;"></div>
+                        <div class="relative z-20">
+                            <i class="fas fa-gift text-4xl text-royal-blue mb-4"></i>
+                            <h3 class="font-serif text-lg mb-2">Mesa de Regalos</h3>
+                            <p class="text-gray-600 text-sm px-4 italic">"Su compañía es nuestro mayor regalo"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOTO FINAL -->
+        <div class="parallax photo-divider" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.imgur.com/oir7Sv6.jpeg');"></div>
+
+        <!-- FOOTER -->
+        <footer class="bg-white text-gray-700 py-20 text-center px-4 relative border-t border-gray-100">
+            <div class="relative z-10">
+                <h2 class="font-serif text-3xl mb-8 text-royal-blue">¡Los esperamos!</h2>
+                <h3 class="font-serif text-xl mb-6">Confirmación de Asistencia</h3>
+                <p class="mb-8 text-gray-500 text-sm max-w-xs mx-auto">Por favor confirmar antes del 1 de Marzo.</p>
+                
+                <a href="https://wa.me/524435296595?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Sergio%20y%20Otilia.%20Seremos%20[NÚMERO]%20personas." target="_blank" class="inline-flex items-center bg-royal-blue text-white px-10 py-4 rounded-full font-bold hover:bg-blue-800 transition duration-300 shadow-xl text-lg w-full max-w-xs justify-center">
+                    <i class="fab fa-whatsapp text-2xl mr-3"></i> Confirmar
+                </a>
+
+                <div class="mt-16 border-t border-gray-200 pt-8">
+                    <p class="font-script text-3xl text-gold-wedding">Sergio & Otilia</p>
+                    <p class="text-[10px] text-gray-400 mt-2 tracking-widest uppercase">10.04.2026</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Cuenta regresiva
+        const weddingDate = new Date("April 10, 2026 12:00:00").getTime();
+        setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            const daysElement = document.getElementById("days");
+            const hoursElement = document.getElementById("hours");
+            const minutesElement = document.getElementById("minutes");
+            const secondsElement = document.getElementById("seconds");
+
+            if (daysElement && hoursElement && minutesElement && secondsElement) {
+                daysElement.innerHTML = days;
+                hoursElement.innerHTML = hours;
+                minutesElement.innerHTML = minutes;
+                secondsElement.innerHTML = seconds;
+            }
+        }, 1000);
+
+        // Control de Música y Modal
+        const music = document.getElementById("bg-music");
+        const musicBtn = document.getElementById("music-btn");
+        const musicIcon = document.getElementById("music-icon");
+        const welcomeModal = document.getElementById("welcome-modal");
+        const enterBtn = document.getElementById("enter-btn");
+        const mainHeader = document.getElementById("main-content-header");
+        const scrollIndicator = document.getElementById("scroll-indicator");
+        const mainBody = document.getElementById("main-body-content");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                musicIcon.classList.remove("fa-play");
+                musicIcon.classList.add("fa-pause");
+            } else {
+                music.pause();
+                musicIcon.classList.remove("fa-pause");
+                musicIcon.classList.add("fa-play");
+            }
+        }
+
+        // Lógica de Entrada (SOLO CLICK)
+        if(enterBtn) {
+            enterBtn.addEventListener('click', () => {
+                // 1. Iniciar música
+                music.play().then(() => {
+                    musicIcon.classList.remove("fa-play");
+                    musicIcon.classList.add("fa-pause");
+                }).catch(console.log);
+
+                // 2. Ocultar modal
+                welcomeModal.classList.add('opacity-0', 'pointer-events-none');
+                
+                // 3. Mostrar contenido
+                setTimeout(() => {
+                    mainHeader.classList.remove('content-hidden');
+                    mainHeader.classList.add('content-visible');
+                    
+                    scrollIndicator.classList.remove('content-hidden');
+                    scrollIndicator.classList.add('content-visible');
+                    
+                    mainBody.classList.remove('content-hidden');
+                    mainBody.classList.add('content-visible');
+                    
+                    musicBtn.classList.remove('hidden');
+                }, 500);
+            });
+        }
+
+        // Slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        if (slides.length > 0) {
+            setInterval(() => {
+                slides[currentSlide].classList.remove('opacity-100');
+                slides[currentSlide].classList.add('opacity-0');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.remove('opacity-0');
+                slides[currentSlide].classList.add('opacity-100');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
